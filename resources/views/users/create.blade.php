@@ -12,7 +12,7 @@
 
 <body class="main-container">
     <header class="header">
-        <div class="content-header">
+        <div class="content-header text-white">
             <h2 class="title-logo"><a href="{{ route('dashboard') }}">Maxsin</a></h2>
             <ul class="list-nav-links">
             <li><a href="#" class="nav-link">Usuários</a></li>
@@ -47,6 +47,9 @@
         </div>
         <div class="content-box">
             <input type="submit" value="Cadastrar" class="button">
+        </div>
+        <div>
+            <a href="{{ route('') }}"></a>
         </div>
     </form>
     @if (session('success'))

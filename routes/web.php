@@ -10,3 +10,6 @@ Route::get('/', function () {
 
 Route::get('/create-user', [UserController::class, 'create'])->name('user.create');
 Route::post('/store-user', [UserController::class, 'store'])->name('user.store');
+
+Route::post('/entrar-user', [UserController::class, 'entrar'])->name('user.entrar');
+Route::post('/login-user', [UserController::class, 'login'])->name('user.login');
