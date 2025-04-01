@@ -8,31 +8,80 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-@layer components{
-   
-  .main-container{
-    @apply min-h-screen bg-black/90 flex flex-col justify-center items-center;
+@layer components {
+
+  /*Início body */
+  .main-container {
+    @apply min-h-screen bg-black/90 text-white;
   }
 
-  .input-box{
-    @apply flex flex-col justify-between mb-10;
+
+
+  /* Início header */
+
+  .header {
+    @apply flex justify-center items-center fixed top-0 bg-amber-50/10 w-[100%] h-30;
   }
 
-  .content-box{
+  .content-header {
+    @apply grid grid-cols-3 items-center justify-items-center w-[100%] h-[100%];
+  }
+
+  .title-logo {
+    @apply text-4xl font-bold text-[#b63129];
+  }
+
+  .list-nav-links {
+    @apply flex justify-around w-64;
+  }
+
+  /* Fim header */
+
+  /* Início do conteúdo */
+
+  .content {
+    @apply min-h-screen flex flex-col justify-center items-center
+  }
+
+  /* Aviso de sucesso */
+
+  .msg-box {
+    @apply mb-5 w-[500px] py-5 flex justify-center rounded-2xl;
+  }
+
+  /* Fim aviso de sucesso */
+
+  /* Início Formulário */
+  .form-container {
+    @apply w-[500px] text-stone-50 p-10 border-gray-400 border-2 rounded-2xl;
+  }
+
+  .content-box {
     @apply w-[100%] flex justify-center;
   }
 
-  .input{
+  .input-box {
+    @apply flex flex-col justify-between mb-10;
+  }
+
+  .input {
     @apply border-gray-400 border-2 rounded-2xl w-[100%] py-3 px-5;
   }
 
-  .button{
-    @apply bg-[#b63129] font-semibold px-8 py-3;
+  .button {
+    @apply bg-[#b63129] font-semibold px-8 py-3 rounded-xl;
   }
+
+  /* Fim formulário */
+
+  /* Fim conteúdo */
+
+  /* Fim página de cadastro */
+
 
 }
 
@@ -42,6 +91,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 body {
   font-family: "Poppins", sans-serif;
 }

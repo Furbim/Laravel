@@ -9,10 +9,10 @@
 
 </head>
 
-<body>
+<body class="main-container">
 
     <form action="{{ route('user.login') }}" method="post"
-        class="w-[500px] text-stone-50 p-10 border-gray-400 border-2 rounded-2xl">
+        class="form-container">
         @csrf
         <div class="content-box mb-10">
             <h1 class="text-5xl">ENTRAR</h1>
@@ -30,7 +30,7 @@
                 value="{{ old(key: 'password') }}" class="input" required>
         </div>
         <div class="content-box">
-            <input type="submit" value="Cadastrar" class="button">
+            <input type="submit" value="Entrar" class="button">
         </div>
     </form>
 
