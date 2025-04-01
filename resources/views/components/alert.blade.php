@@ -9,3 +9,10 @@
         <p class="text-red-600">{{ session('error') }}</p>
     </div>
 @endif
+@if ($errors->any())
+    <div class="bg-red-400/20 msg-box">
+        @foreach ($errors->all() as $error)
+        <p class="text-red-600"> {{ $error }}</p><br>
+        @endforeach
+    </div>
+@endif

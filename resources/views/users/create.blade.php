@@ -25,19 +25,19 @@
             <div class="input-box">
                 <label for="name" class="mb-3">Nome:</label>
                 <input type="text" name="name" id="name" placeholder="Nome Completo" class="input" value="{{ old('name') }}"
-                    required>
+                    >
             </div>
 
             <div class="input-box">
                 <label for="email" class="mb-3">Email:</label>
                 <input type="email" name="email" id="email" placeholder="email@exemplo.com" class="input"
-                    value=" {{ old('email') }}" required>
+                    value=" {{ old('email') }}" >
             </div>
 
             <div class="input-box">
                 <label for="password" class="mb-3">Senha:</label>
                 <input type="password" name="password" id="password" placeholder="Senha com no mínimo 6 carcateres"
-                    value="{{ old(key: 'password') }}" class="input" required>
+                    value="{{ old(key: 'password') }}" class="input" >
             </div>
             <div class="content-box">
                 <input type="submit" value="Cadastrar" class="button">
