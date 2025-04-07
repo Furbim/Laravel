@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+
 
 class UserController extends Controller
 {
@@ -33,17 +36,30 @@ class UserController extends Controller
 
     }
 
-    public function entrar(){
+    public function entrar()
+    {
         return view("users.entrar");
     }
 
-    public function login(Request $request)
+
+    public function painel()
     {
-        $user = Auth::user($request);
+        return view('sistema.painel'); 
 
-        $id = Auth::id($request);
-        $nome = Auth::nome($request);
-
-        return redirect()->route("sistema.painel")->with('nome', $nome);
     }
+
+
+    public function login(LoginRequest $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            return redirect()->route("sistema.painel")->with('nome', $user->name);
+        }
+
+        return redirect()->back()->withErrors(['erro' => 'Credenciais inválidas']);
+    }
+
+
 }
