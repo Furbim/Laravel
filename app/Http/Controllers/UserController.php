@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\Moedas;
 use App\Http\Requests\UserRequest;
 use App\Models\User;
 use App\Http\Controllers\Controller;
@@ -62,4 +63,14 @@ class UserController extends Controller
     }
 
 
+    public function moedas(Moedas $moedas){
+        $user = Auth::user();
+
+        if ($moedas > 0) {
+            $user->moeda += $moedas;
+            $user->save();
+        } else {
+            return back()->with('error', 'Valor inválido!');
+        }
+    }
 }
