@@ -22,7 +22,15 @@ class Moedas extends FormRequest
     public function rules(): array
     {
         return [
-            "quantidade" => "required",
+            "quantidade" => "required|integer|min:1",
+        ];
+    }
+
+
+    public function messages(): array
+    {
+        return [
+            "quantidade" => "Insira um valor válido!",
         ];
     }
 }

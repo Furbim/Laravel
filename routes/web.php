@@ -16,5 +16,6 @@ Route::post('/login-user', [UserController::class, 'login'])->name('user.login')
 
 Route::get('/painel', [UserController::class, 'painel'])->name('sistema.painel');
 
-Route::post('/moedas-user', [UserController::class, 'moedas'])->name('user.moedas');
+Route::post('/addMoedas-user', [UserController::class, 'addMoedas'])->name('user.addMoedas');
+Route::post('/removeMoedas-user', [UserController::class, 'removeMoedas'])->name('user.removeMoedas');
 

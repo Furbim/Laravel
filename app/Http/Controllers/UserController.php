@@ -45,7 +45,7 @@ class UserController extends Controller
 
     public function painel()
     {
-        return view('sistema.painel'); 
+        return view('sistema.painel');
 
     }
 
@@ -63,14 +63,31 @@ class UserController extends Controller
     }
 
 
-    public function moedas(Moedas $moedas){
-        $user = Auth::user();
+    public function addMoedas(Moedas $request)
+    {
 
-        if ($moedas > 0) {
-            $user->moeda += $moedas;
+        $user = Auth::user();
+        $user->moeda += (int)$request->quantidade;
+        $user->save();
+
+        return back()->with('success', 'Valor adicionado com sucesso!');
+
+    }
+
+    public function removeMoedas(Moedas $request)
+    {
+        $quantidade = (int)$request->quantidade;
+        $user = Auth::user();
+        if($quantidade <= $user->moeda){
+
+            $user->moeda -= $quantidade;
             $user->save();
-        } else {
-            return back()->with('error', 'Valor inválido!');
+            return back()->with('success', 'Valor removido com sucesso!');
+        }else{
+            return back()->with('error', 'Saldo insuficiente!');
         }
+
+
+        
     }
 }
