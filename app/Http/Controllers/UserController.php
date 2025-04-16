@@ -86,8 +86,5 @@ class UserController extends Controller
         }else{
             return back()->with('error', 'Saldo insuficiente!');
         }
-
-
-        
     }
 }
